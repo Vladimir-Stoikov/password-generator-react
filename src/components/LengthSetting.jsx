@@ -12,10 +12,14 @@ const SettingLi = styled.li`
 `
 
 const InputField = styled.input`
-  width: 35px;
+  width: 40px;
   height: 30px;
   text-align: center; 
   border: none;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.3rem;
+  color: #0A1D37;
+  border-radius: 10px;
   &[type=number]::-webkit-inner-spin-button,
   &[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;

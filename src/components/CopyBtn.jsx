@@ -12,6 +12,7 @@ const CopyButton = styled.button`
   border-top-right-radius: 2px;
   font-size: 1.5rem;
   background-color: #a0745e;
+  border-left: 3px solid #0A1D37;
   &:hover {
     background-color: #b88e7a;
   }
