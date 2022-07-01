@@ -40,7 +40,6 @@ function App() {
 
   function copyPassword() {
     if(password) {
-       console.log('Password is copys' + password);
        navigator.clipboard.writeText(password);
        setWarningText('Password copied to clipboard!')
     } else {
@@ -78,6 +77,11 @@ function App() {
     const valid = [upperCase, lowerCase, number, symbol]
     .map(validItem => validItem[0] ? letter[validItem[1]] : null)
     .filter(validItem => validItem !== null);
+
+    if(valid.length === 0) {
+      setWarningText('Choose at least one setting!');
+      return ;
+    }
 
     const result = [];
  
