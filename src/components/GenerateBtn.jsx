@@ -3,17 +3,17 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   position: absolute;
-  bottom: -0.5%;
+  bottom: 0;
   left: 0;
   right: 0;
   height: 60px;
   border: none;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 17px;
+  border-bottom-right-radius: 17px;
   color: #FAF3E0;
   font-family: 'Nunito', sans-serif;
   font-size: 1.5rem;
-  background-color: #B68973;
+  background-color: #a0745e;
   transition: background-color .2s ease;
   &:hover {
     background-color: #c59c87;
@@ -23,8 +23,8 @@ const Button = styled.button`
   }
 `
 
-export default function GenerateBtn() {
+export default function GenerateBtn({func}) {
   return (
-    <Button>GenerateBtn</Button>
+    <Button onClick={func}>GenerateBtn</Button>
   )
 }

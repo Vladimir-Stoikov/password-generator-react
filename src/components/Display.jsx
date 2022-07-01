@@ -11,7 +11,7 @@ margin: 20px auto;
 text-align: center;
 background-color: #FAF3E0;
 border-radius: 6px;
-color: #1E212D;
+color: #0A1D37;
 `
 
 export default function Display({text}) {
