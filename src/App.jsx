@@ -5,6 +5,7 @@ import GenerateBtn from './components/GenerateBtn';
 import LengthSetting from './components/LengthSetting';
 import Setting from './components/Setting';
 import Title from './components/Title';
+import Warning from './components/Warmimg';
 
 const Main = styled.main`
   background-color: #eabf9f;
@@ -14,7 +15,7 @@ const Main = styled.main`
   align-items: start;
   position: relative;
   width: 400px;
-  height: 500px;
+  height: 540px;
   border-radius: 20px;
   border: 3px solid #0A1D37;
 `;
@@ -34,6 +35,7 @@ border-top: 3px solid #0A1D37;
 function App() {
 
   const [password, setPassword] = useState('');
+  const [warningText, setWarningText] = useState('');
 
   function generatePassword() {
 
@@ -43,8 +45,17 @@ function App() {
     const number = [document.getElementById('setting-3').checked, 'number'];
     const symbol = [document.getElementById('setting-4').checked, 'symbol'];
 
-    if(length < 8) length = 8;
-    if(length > 16) length = 16;
+    if(length < 8)  {
+      length = 8;
+      setWarningText('The Password min length is 8!')
+    }
+    else if(length > 16) {
+      length = 16;
+      setWarningText('The Password max length is 16!')
+    }
+    else {
+      setWarningText('')
+    }
 
     const letter = {
       upperCase: getUpperCase,
@@ -58,14 +69,10 @@ function App() {
     .filter(validItem => validItem !== null);
 
     const result = [];
-
-    console.log(valid);
-
+ 
     while(result.length < length - valid.length) {
       result.push(valid[Math.floor(Math.random() * valid.length)]())
     }
-
-    console.log('generate', ([...valid.map(validItem => validItem()), ...result]), length);
 
     setPassword(shuffleWord([...valid.map(validItem => validItem()), ...result]))
   }
@@ -113,7 +120,8 @@ function App() {
         <Setting text='Numbers' id='setting-3'/>
         <Setting text='Symbols' id='setting-4'/>
       </SettingsGroup>
-       <GenerateBtn func={generatePassword}/>
+      <Warning text={warningText}/>
+      <GenerateBtn func={generatePassword}/>
     </Main>
   );
 }
