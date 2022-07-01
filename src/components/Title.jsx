@@ -6,6 +6,12 @@ const TitleH3 = styled.h3`
   font-size: ${({fontSize}) => fontSize ? fontSize : '1.5rem'};
   margin: ${({margin}) => margin ? margin : '0'};
   ${({style}) => style ? style : ''};
+  @media(max-width: 440px) {
+    font-size: ${({fontSize}) => fontSize ? '1.8rem' : '1.5rem'};
+  }
+  @media(max-width: 350px) {
+    font-size: ${({fontSize}) => fontSize ? '1.5rem' : '1.2rem'};
+  }
 `
 
 export default function Title({text, color, fontSize, margin, style}) {

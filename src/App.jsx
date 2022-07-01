@@ -19,17 +19,35 @@ const Main = styled.main`
   height: 540px;
   border-radius: 20px;
   border: 3px solid #0A1D37;
+  @media(max-width: 440px) {
+    width: 90vw;
+    margin: 0 auto;
+  }
+  @media(max-width: 350px) { 
+    height: 450px;
+  }
 `;
 
 const SettingsGroup = styled.ul`
   width: 80%;
   margin: 0 auto;
+  margin-top: 15px;
 `
 
 const TitleLine = styled.hr`
   width: 100%;
+  margin-bottom: 15px;
   border: none;
   border-top: 3px solid #0A1D37;
+`
+
+const DisplaySection = styled.section`
+  position: relative;
+  width: 350px;
+  margin: 0 auto;
+    @media(max-width: 440px) {
+    width: 90%;
+    }
 `
 
 
@@ -127,8 +145,10 @@ function App() {
     <Main>
       <Title text='Password generator' color='#0A1D37' fontSize='2.4rem' margin='15px auto 10px'/>
       <TitleLine />
-      <Display text={password} />
-      <CopyBtn func={copyPassword}/>
+      <DisplaySection>
+        <Display text={password} />     
+        <CopyBtn func={copyPassword}/>
+      </DisplaySection>
       <SettingsGroup >
         <LengthSetting text='Password Length' id='password-length'/>
         <Setting text='Upper case' id='setting-1'/>
