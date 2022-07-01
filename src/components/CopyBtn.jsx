@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const CopyButton = styled.button`
   position: absolute;
   right: 25px;
-  top: 103.5px;
+  top: 104px;
   width: 30px;
   height: 64px;
   border: none;
