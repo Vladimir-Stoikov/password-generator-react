@@ -22,14 +22,14 @@ const Main = styled.main`
 `;
 
 const SettingsGroup = styled.ul`
-width: 80%;
-margin: 0 auto;
+  width: 80%;
+  margin: 0 auto;
 `
 
 const TitleLine = styled.hr`
-width: 100%;
-border: none;
-border-top: 3px solid #0A1D37;
+  width: 100%;
+  border: none;
+  border-top: 3px solid #0A1D37;
 `
 
 

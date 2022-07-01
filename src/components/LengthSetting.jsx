@@ -3,26 +3,25 @@ import styled from 'styled-components'
 import Title from './Title'
 
 const SettingLi = styled.li`
-margin: 10px 0;
-width: 100%;
-list-style: none;
-display: flex;
-justify-content: space-between;
-align-items: center;
+  margin: 10px 0;
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 const InputField = styled.input`
-width: 35px;
-height: 30px;
-text-align: center;
-border: none;
-&[type=number]::-webkit-inner-spin-button,
-&[type=number]::-webkit-outer-spin-button {
--webkit-appearance: none;
--moz-appearance: none;
-appearance: none; 
-}
-
+  width: 35px;
+  height: 30px;
+  text-align: center; 
+  border: none;
+  &[type=number]::-webkit-inner-spin-button,
+  &[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+  }
 `
 
 export default function LengthSetting({text, id}) {
