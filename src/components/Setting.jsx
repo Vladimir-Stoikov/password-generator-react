@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Title from './Title'
 
@@ -11,11 +11,18 @@ justify-content: space-between;
 align-items: center;
 `
 
-export default function Setting({text}) {
+export default function Setting({text, id}) {
+
+  const [checkBool, setCheckBool] = useState(true)
+
+  function handler() {
+    setCheckBool(prev => !prev);
+  }
+
   return (
     <SettingLi>
       <Title text={text} />
-      <input type="checkbox" />
+      <input type="checkbox" checked={checkBool} id={id} onChange={handler}/>
     </SettingLi>
   )
 }

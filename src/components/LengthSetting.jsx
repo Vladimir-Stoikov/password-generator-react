@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Title from './Title'
 
@@ -31,8 +31,8 @@ export default function LengthSetting({text, id}) {
 
   function changeField(e) {
     setField(e.target.value);
-  } 
-
+  }
+ 
   return (
     <SettingLi>
       <Title text={text} />
