@@ -5,7 +5,8 @@ import GenerateBtn from './components/GenerateBtn';
 import LengthSetting from './components/LengthSetting';
 import Setting from './components/Setting';
 import Title from './components/Title';
-import Warning from './components/Warmimg';
+import Warning from './components/Warning';
+import CopyBtn from './components/CopyBtn';
 
 const Main = styled.main`
   background-color: #eabf9f;
@@ -36,6 +37,16 @@ function App() {
 
   const [password, setPassword] = useState('');
   const [warningText, setWarningText] = useState('');
+
+  function copyPassword() {
+    if(password) {
+       console.log('Password is copys' + password);
+       navigator.clipboard.writeText(password);
+       setWarningText('Password copied to clipboard!')
+    } else {
+      setWarningText('Password in not created')
+    }
+  }
 
   function generatePassword() {
 
@@ -113,7 +124,8 @@ function App() {
       <Title text='Password generator' color='#0A1D37' fontSize='2.4rem' margin='15px auto 10px'/>
       <TitleLine />
       <Display text={password} />
-      <SettingsGroup>
+      <CopyBtn func={copyPassword}/>
+      <SettingsGroup >
         <LengthSetting text='Password Length' id='password-length'/>
         <Setting text='Upper case' id='setting-1'/>
         <Setting text='Lower case' id='setting-2'/>
