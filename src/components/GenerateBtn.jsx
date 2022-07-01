@@ -12,7 +12,7 @@ const Button = styled.button`
   border-bottom-right-radius: 17px;
   color: #FAF3E0;
   font-family: 'Nunito', sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   background-color: #a0745e;
   transition: background-color .2s ease;
   &:hover {
@@ -25,6 +25,6 @@ const Button = styled.button`
 
 export default function GenerateBtn({func}) {
   return (
-    <Button onClick={func}>GenerateBtn</Button>
+    <Button onClick={func}>Generate</Button>
   )
 }

@@ -28,7 +28,6 @@ const TitleLine = styled.hr`
 width: 100%;
 border: none;
 border-top: 3px solid #0A1D37;
-
 `
 
 
@@ -39,31 +38,37 @@ function App() {
   function generatePassword() {
 
     let length = document.getElementById('password-length').value;
+    const upperCase = [document.getElementById('setting-1').checked, 'upperCase'];
+    const lowerCase = [document.getElementById('setting-2').checked, 'lowerCase'];
+    const number = [document.getElementById('setting-3').checked, 'number'];
+    const symbol = [document.getElementById('setting-4').checked, 'symbol'];
 
     if(length < 8) length = 8;
     if(length > 16) length = 16;
 
     const letter = {
-      0: getUpperCase,
-      1: getLowerCase,
-      2: getNumber,
-      3: getSymbol,
+      upperCase: getUpperCase,
+      lowerCase: getLowerCase,
+      number: getNumber,
+      symbol: getSymbol,
     }
 
-    const valid = [getUpperCase(), getLowerCase(), getNumber(), getSymbol()];
+    const valid = [upperCase, lowerCase, number, symbol]
+    .map(validItem => validItem[0] ? letter[validItem[1]] : null)
+    .filter(validItem => validItem !== null);
 
     const result = [];
 
+    console.log(valid);
+
     while(result.length < length - valid.length) {
-      result.push(letter[Math.floor(Math.random() * valid.length)]())
+      result.push(valid[Math.floor(Math.random() * valid.length)]())
     }
 
-    console.log('generate', ([...valid, ...result]), length);
+    console.log('generate', ([...valid.map(validItem => validItem()), ...result]), length);
 
-    setPassword(shuffleWord([...valid, ...result]))
+    setPassword(shuffleWord([...valid.map(validItem => validItem()), ...result]))
   }
-
-
 
   function shuffleWord(word, result = []) {
     
