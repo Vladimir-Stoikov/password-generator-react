@@ -42,7 +42,7 @@ const Input = styled.input`
 display: none;
 `
 
-export default function Setting({text, id}) {
+export default function Setting({text, ref, id}) {
 
   const [checkBool, setCheckBool] = useState(true)
 

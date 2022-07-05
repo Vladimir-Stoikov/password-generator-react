@@ -26,6 +26,12 @@ const InputField = styled.input`
     -moz-appearance: none;
     appearance: none; 
   }
+  @media(max-width: 440px) {
+    font-size: 1.2rem;
+  }
+  @media(max-width: 350px) {
+    font-size: 1rem;
+  }
 `
 
 export default function LengthSetting({text, id}) {
