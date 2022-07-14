@@ -23,6 +23,10 @@ const Button = styled.button`
   &:active {
     background-color: #d6af9c;
   }
+  @media(max-width: 350px) {
+    font-size: 1.4rem;
+    height: 45
+  }
 `
 
 export default function GenerateBtn({func}) {

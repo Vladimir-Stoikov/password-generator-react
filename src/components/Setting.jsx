@@ -9,6 +9,12 @@ const SettingLi = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media(max-width: 440px) {
+    font-size: 1.2rem;
+  }
+  @media(max-width: 350px) {
+    font-size: 1rem;
+  }
 `
 
 const Label = styled.label`
@@ -35,6 +41,29 @@ const Label = styled.label`
   &::after { 
     left: 60%;
     }
+  }
+  @media(max-width: 350px) {
+    width: 30px;
+    height: 10px;
+    border-radius: 7.5px;
+    &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -5%;
+    width: 20px;
+    height: 20px;
+    background-color: #a0745e;
+    border-radius: 50%;
+    transition: left .2s ease-out;
+  }
+  input[type="checkbox"]:checked + & {
+    background-color: #faf3e0;
+  &::after { 
+    left: 60%;
+    }
+  }
   }
 `
 
